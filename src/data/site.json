@@ -147,6 +147,14 @@
 				"description": "Rollo plastico color negro.",
 				"image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
 				"imageAlt": "Ingeniero revisando materiales en obra"
+			},
+			{
+				"name": "Rollo plastico 3x3\"",
+				"reference": "RP3x3",
+				"category": "Plasticos",
+				"description": "Rollo plastico color negro por 300 metros.",
+				"image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+				"imageAlt": "Ingeniero revisando materiales en obra"
 			}
 		]
 	},
