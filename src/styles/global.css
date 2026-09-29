@@ -1,0 +1,53 @@
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource-variable/sora/index.css";
+@import "tailwindcss";
+@import "tailwind-animations";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+	--font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+	--font-display: "Sora Variable", ui-sans-serif, system-ui, sans-serif;
+
+	--color-brand: #2380c3;
+	--color-accent: #8cbc42;
+}
+
+:root {
+	--app-bg: #ffffff;
+	--app-surface: #f5f7f9;
+	--app-card: #ffffff;
+	--app-text: #0a0a0a;
+	--app-muted: #6b7480;
+	--app-border: #e6ebf0;
+}
+
+[data-theme="dark"] {
+	--app-bg: #0a0a0a;
+	--app-surface: #111318;
+	--app-card: #17191c;
+	--app-text: #ffffff;
+	--app-muted: #98a2ad;
+	--app-border: #262b31;
+}
+
+@theme inline {
+	--color-page: var(--app-bg);
+	--color-surface: var(--app-surface);
+	--color-card: var(--app-card);
+	--color-ink: var(--app-text);
+	--color-muted: var(--app-muted);
+	--color-line: var(--app-border);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		transition:
+			background-color 0.2s ease,
+			color 0.2s ease;
+	}
+}

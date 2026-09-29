@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Officplastic — Distribuidora de plásticos y construcción",
+	description = "Catálogo de plásticos y elementos para la construcción. Cotizá por WhatsApp o email.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" data-theme="light">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<script is:inline>
+			(function () {
+				var key = "officplastic-theme";
+				var saved = null;
+				try {
+					saved = window.localStorage.getItem(key);
+				} catch (e) {}
+				var theme =
+					saved === "dark" || saved === "light"
+						? saved
+						: window.matchMedia &&
+							  window.matchMedia("(prefers-color-scheme: dark)").matches
+							? "dark"
+							: "light";
+				document.documentElement.setAttribute("data-theme", theme);
+			})();
+		</script>
+	</head>
+	<body class="bg-page font-sans text-ink antialiased">
+		<slot />
+	</body>
+</html>

@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon/components";
+import Reveal from "../components/ui/Reveal.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import { site } from "../data/site";
+
+const staggerDelays = [
+	"animate-delay-0",
+	"animate-delay-100",
+	"animate-delay-200",
+	"animate-delay-300",
+];
+---
+
+<section id="nosotros" class="bg-surface px-6 py-16 sm:px-10 sm:py-20">
+	<div class="mx-auto max-w-6xl">
+		<Reveal animation="animate-fade-in-up">
+			<SectionHeader eyebrow={site.whyUs.eyebrow} title={site.whyUs.title} />
+		</Reveal>
+
+		<div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				site.whyUs.items.map((item, index) => (
+      <Reveal animation="animate-fade-in-up animate-range-[entry_10%_cover_70%]">
+						<div class="flex h-full flex-col gap-4 rounded-2xl border border-line bg-card p-6">
+							<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/15 text-accent">
+								<Icon name={item.icon} size={26} />
+							</span>
+							<div>
+								<h3 class="font-semibold text-ink">{item.title}</h3>
+								<p class="mt-1 text-sm text-muted">{item.description}</p>
+							</div>
+						</div>
+					</Reveal>
+				))
+			}
+		</div>
+	</div>
+</section>

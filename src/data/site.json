@@ -1,0 +1,312 @@
+{
+	"site": {
+		"name": "Officplastic",
+		"tagline": "Distribuidora de plásticos y elementos para la construcción",
+		"language": "es",
+		"contact": {
+			"whatsapp": "+573165122359",
+			"phone": "+57 316 512 2359",
+			"email": "malo_glad@gmail.com",
+			"schedule": "Lun a Vie · 8:00 a 18:00"
+		}
+	},
+	"topBar": {
+		"text": "Envíos a todo el país · Cotizá sin compromiso por WhatsApp o email",
+		"icon": "mdi:truck-fast-outline"
+	},
+	"nav": {
+		"links": [
+			{
+				"label": "Inicio",
+				"href": "#inicio"
+			},
+			{
+				"label": "Catálogo",
+				"href": "#catalogo"
+			},
+			{
+				"label": "Nosotros",
+				"href": "#nosotros"
+			},
+			{
+				"label": "Contacto",
+				"href": "#contacto"
+			}
+		],
+		"cta": {
+			"label": "Cotizar",
+			"type": "whatsapp",
+			"message": "Hola Officplastic, quiero una cotización."
+		}
+	},
+	"hero": {
+		"eyebrow": "Distribuidora de plásticos y elementos para la construcción",
+		"titleLine1": "Materiales que construyen.",
+		"titleLine2": "Atención que acompaña.",
+		"subtitle": "Explorá nuestro catálogo de plásticos, tuberías y materiales de construcción. Sin precios en línea: pedí tu cotización directo por WhatsApp o email.",
+		"primaryCta": {
+			"label": "Ver catálogo",
+			"type": "link",
+			"href": "#catalogo"
+		},
+		"secondaryCta": {
+			"label": "Cotizar por WhatsApp",
+			"type": "whatsapp",
+			"message": "Hola Officplastic, quiero una cotización."
+		},
+		"showcase": {
+			"items": [
+				{
+					"icon": "mdi:pipe",
+					"title": "Tuberías y accesorios"
+				},
+				{
+					"icon": "mdi:layers-outline",
+					"title": "Láminas y plásticos"
+				},
+				{
+					"icon": "mdi:hammer-wrench",
+					"title": "Construcción"
+				}
+			]
+		},
+		"stats": [
+			{
+				"value": "20+",
+				"label": "años de trayectoria"
+			},
+			{
+				"value": "+500",
+				"label": "productos en catálogo"
+			},
+			{
+				"value": "98%",
+				"label": "entregas a tiempo"
+			},
+			{
+				"value": "24h",
+				"label": "respuesta en cotizaciones"
+			}
+		]
+	},
+	"categories": [
+		{
+			"icon": "mdi:layers-outline",
+			"title": "Plásticos",
+			"description": "Láminas, acrílicos, polietileno y más."
+		},
+		{
+			"icon": "mdi:pipe",
+			"title": "Tuberías y accesorios",
+			"description": "PVC, conduits, uniones y conexiones."
+		},
+		{
+			"icon": "mdi:hammer-wrench",
+			"title": "Construcción",
+			"description": "Cementos, mallas, herramientas y más."
+		},
+		{
+			"icon": "mdi:package-variant",
+			"title": "Empaques y láminas",
+			"description": "Stretch, termoencogible y protecciones."
+		}
+	],
+	"catalog": {
+		"eyebrow": "Catálogo destacado",
+		"title": "Productos más solicitados",
+		"note": "Sin precios en línea · cotizá directo y recibí tu propuesta",
+		"products": [
+			{
+				"name": "Rollo plastico 2x2\"",
+				"reference": "RP2x2",
+				"category": "Plasticos",
+				"description": "Rollo plastico color negro.",
+				"image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+				"imageAlt": "Obra en construcción con tuberías"
+			},
+			{
+				"name": "Rollo plastico 3x2\"",
+				"reference": "RP3x2",
+				"category": "Plasticos",
+				"description": "Rollo plastico color negro.",
+				"image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+				"imageAlt": "Detalles arquitectónicos y materiales"
+			},
+			{
+				"name": "Rollo plastico 3x3\"",
+				"reference": "RP3x3",
+				"category": "Plasticos",
+				"description": "Rollo plastico color negro.",
+				"image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+				"imageAlt": "Trabajos de construcción en obra"
+			},
+			{
+				"name": "Rollo plastico 3x3\"",
+				"reference": "RP3x3",
+				"category": "Plasticos",
+				"description": "Rollo plastico color negro.",
+				"image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+				"imageAlt": "Ingeniero revisando materiales en obra"
+			}
+		]
+	},
+	"whyUs": {
+		"eyebrow": "Por qué Officplastic",
+		"title": "Una empresa cercana, con respaldo técnico",
+		"items": [
+			{
+				"icon": "mdi:handshake",
+				"title": "Asesoría experta",
+				"description": "Te ayudamos a elegir el material correcto para cada obra."
+			},
+			{
+				"icon": "mdi:cube-scan",
+				"title": "Catálogo amplio",
+				"description": "Más de 500 referencias en plásticos y construcción."
+			},
+			{
+				"icon": "mdi:truck-delivery",
+				"title": "Entrega puntual",
+				"description": "Coordinamos envíos a obra para que nada se detenga."
+			},
+			{
+				"icon": "mdi:message-text-outline",
+				"title": "Atención directa",
+				"description": "Hablas con una persona, no con un bot. Respuesta en 24 h."
+			}
+		]
+	},
+	"howItWorks": {
+		"eyebrow": "Cómo cotizar",
+		"title": "Tres pasos, sin vueltas",
+		"steps": [
+			{
+				"icon": "mdi:numeric-1-circle",
+				"title": "Explorá el catálogo",
+				"description": "Navegá por categorías y encontrá los productos que necesitás."
+			},
+			{
+				"icon": "mdi:numeric-2-circle",
+				"title": "Elegí tus productos",
+				"description": "Agregalos a tu consulta y envianos el listado por WhatsApp o email."
+			},
+			{
+				"icon": "mdi:check-circle",
+				"title": "Recibí tu cotización",
+				"description": "Te respondemos con precios y disponibilidad en menos de 24 horas."
+			}
+		]
+	},
+	"contact": {
+		"eyebrow": "Contacto",
+		"title": "Hablemos de tu proyecto",
+		"description": "Completá el formulario o escribinos directo. Te respondemos a la brevedad.",
+		"info": [
+			{
+				"icon": "mdi:whatsapp",
+				"label": "WhatsApp",
+				"value": "+57 316 512 2359"
+			},
+			{
+				"icon": "mdi:email-outline",
+				"label": "Email",
+				"value": "malo_glad@hotmail.com"
+			},
+			{
+				"icon": "mdi:clock-outline",
+				"label": "Horario",
+				"value": "Lun a Vie · 8:00 a 18:00"
+			}
+		],
+		"form": {
+			"submitLabel": "Enviar solicitud",
+			"submitIcon": "mdi:send",
+			"fields": [
+				{
+					"name": "nombre",
+					"label": "Nombre",
+					"type": "text",
+					"placeholder": "Tu nombre",
+					"required": true
+				},
+				{
+					"name": "email",
+					"label": "Email",
+					"type": "email",
+					"placeholder": "tu@correo.com",
+					"required": true,
+					"autocomplete": "email"
+				},
+				{
+					"name": "telefono",
+					"label": "Teléfono",
+					"type": "tel",
+					"placeholder": "+57 ...",
+					"optional": true,
+					"autocomplete": "tel"
+				},
+				{
+					"name": "mensaje",
+					"label": "Mensaje",
+					"type": "text",
+					"placeholder": "Contanos qué necesitás",
+					"textarea": true
+				}
+			]
+		}
+	},
+	"footer": {
+		"description": "Distribuidora de plásticos y elementos para la construcción.",
+		"logoIcon": "mdi:cube-outline",
+		"columns": [
+			{
+				"title": "Empresa",
+				"links": [
+					{
+						"label": "Inicio",
+						"href": "#inicio"
+					},
+					{
+						"label": "Catálogo",
+						"href": "#catalogo"
+					},
+					{
+						"label": "Nosotros",
+						"href": "#nosotros"
+					},
+					{
+						"label": "Contacto",
+						"href": "#contacto"
+					}
+				]
+			},
+			{
+				"title": "Líneas",
+				"links": [
+					{
+						"label": "Plásticos",
+						"href": "#catalogo"
+					},
+					{
+						"label": "Tuberías",
+						"href": "#catalogo"
+					},
+					{
+						"label": "Construcción",
+						"href": "#catalogo"
+					},
+					{
+						"label": "Empaques",
+						"href": "#catalogo"
+					}
+				]
+			}
+		],
+		"copyright": "© 2025 Officplastic. Todos los derechos reservados.",
+		"rightTagline": "Hecho con atención, como debe ser."
+	},
+	"whatsappFloat": {
+		"enabled": true,
+		"message": "Hola Officplastic, quiero una cotización."
+	}
+}

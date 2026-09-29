@@ -1,0 +1,69 @@
+---
+type InputType =
+	| "text"
+	| "email"
+	| "tel"
+	| "password"
+	| "number"
+	| "url"
+	| "search";
+
+interface Props {
+	name: string;
+	label?: string;
+	type?: InputType;
+	placeholder?: string;
+	required?: boolean;
+	optional?: boolean;
+	textarea?: boolean;
+	rows?: number;
+	autocomplete?: string;
+}
+
+const {
+	name,
+	label,
+	type = "text",
+	placeholder,
+	required = false,
+	optional = false,
+	textarea = false,
+	rows = 4,
+	autocomplete,
+} = Astro.props;
+
+const fieldId = `field-${name}`;
+
+const inputClass =
+	"w-full rounded-xl border border-line bg-page px-4 py-3 text-ink placeholder:text-muted/70 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30";
+---
+
+<div class="flex flex-col gap-2">
+	{label && (
+		<label for={fieldId} class="text-sm font-medium text-ink">
+			{label}
+			{optional && <span class="text-muted"> (opcional)</span>}
+		</label>
+	)}
+	{textarea ? (
+		<textarea
+			id={fieldId}
+			name={name}
+			rows={rows}
+			placeholder={placeholder}
+			required={required}
+			autocomplete={autocomplete}
+			class={inputClass}
+		></textarea>
+	) : (
+		<input
+			id={fieldId}
+			name={name}
+			type={type}
+			placeholder={placeholder}
+			required={required}
+			autocomplete={autocomplete}
+			class={inputClass}
+		/>
+	)}
+</div>

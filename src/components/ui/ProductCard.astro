@@ -1,0 +1,66 @@
+---
+import {
+	buildEmailUrl,
+	buildQuoteMessage,
+	buildWhatsAppUrl,
+} from "../../lib/quote";
+import Badge from "./Badge.astro";
+import Button from "./Button.astro";
+
+interface Props {
+	name: string;
+	reference: string;
+	category?: string;
+	description?: string;
+	image?: string;
+	imageAlt?: string;
+}
+
+const {
+	name,
+	reference,
+	category = "Producto",
+	description,
+	image,
+	imageAlt,
+} = Astro.props;
+
+const product = { name, reference };
+const quoteMessage = buildQuoteMessage(
+	product,
+	"¿Pueden enviarme precio y disponibilidad?",
+);
+const whatsAppUrl = buildWhatsAppUrl(quoteMessage);
+const emailUrl = buildEmailUrl(quoteMessage);
+---
+
+<article class="flex flex-col overflow-hidden rounded-2xl border border-line bg-card">
+	{
+		image ? (
+			<img
+				src={image}
+				alt={imageAlt ?? name}
+				loading="lazy"
+				class="h-44 w-full object-cover"
+			/>
+		) : (
+			<div
+				class="flex h-44 items-center justify-center bg-surface text-4xl font-bold text-brand/30"
+				aria-hidden="true"
+			>
+				{category.slice(0, 1)}
+			</div>
+		)
+	}
+	<div class="flex flex-col gap-2 p-5">
+		<Badge>{category}</Badge>
+		<h3 class="font-semibold text-ink">{name}</h3>
+		<p class="text-sm text-muted">Ref. {reference}</p>
+		{description && <p class="text-sm leading-relaxed text-muted">{description}</p>}
+		<p class="text-sm font-medium text-muted">Precio a consultar</p>
+		<div class="mt-2 flex flex-col gap-2">
+			<Button variant="whatsapp" href={whatsAppUrl} size="sm">Cotizar por WhatsApp</Button>
+			<Button variant="secondary" href={emailUrl} size="sm">Cotizar por email</Button>
+		</div>
+	</div>
+</article>

@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+import { ctaHref, site } from "../data/site";
+import Layout from "../layouts/Layout.astro";
+import CatalogSection from "../sections/CatalogSection.astro";
+import Categories from "../sections/Categories.astro";
+import Contact from "../sections/Contact.astro";
+import Footer from "../sections/Footer.astro";
+import Hero from "../sections/Hero.astro";
+import HowItWorks from "../sections/HowItWorks.astro";
+import Navbar from "../sections/Navbar.astro";
+import WhyUs from "../sections/WhyUs.astro";
+---
+
+<Layout title={`${site.site.name} — ${site.site.tagline}`} description={site.hero.subtitle}>
+	<Navbar />
+
+	<main>
+		<Hero />
+		<Categories />
+		<CatalogSection />
+		<WhyUs />
+		<HowItWorks />
+		<Contact />
+	</main>
+
+	<Footer />
+
+	{
+		site.whatsappFloat.enabled && (
+			<a
+				href={ctaHref(site.nav.cta)}
+				class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-black shadow-lg transition-transform hover:scale-105"
+				aria-label="Cotizar por WhatsApp"
+			>
+				<Icon name="mdi:whatsapp" size={28} />
+			</a>
+		)
+	}
+</Layout>

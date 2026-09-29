@@ -1,0 +1,72 @@
+---
+import { cn } from "../../lib/cn";
+
+interface Props {
+	/**
+	 * Etiqueta HTML a renderizar.
+	 *
+	 * @default "div"
+	 */
+	as?: "div" | "section" | "article" | "li" | "header";
+	/**
+	 * Clases de animación de tailwind-animations (p. ej. `animate-fade-in`,
+	 * `animate-slide-in-bottom`, `animate-zoom-in`). Colección completa en
+	 * https://tailwind-animations.com/.
+	 *
+	 * @default "animate-fade-in"
+	 */
+	animation?: string;
+	/**
+	 * Usa `timeline-view` (animación sincronizada con el scroll) si es
+	 * `true`; si es `false`, la animación corre al cargar.
+	 *
+	 * @default true
+	 */
+	timeline?: boolean;
+	/**
+	 * Rango de la animación scroll-driven: `animate-range-gradual`,
+	 * `animate-range-moderate`, `animate-range-brisk`, `animate-range-rapid`
+	 * o valor arbitrario `animate-range-[entry_10%_contain_30%]`.
+	 * Solo aplica si `timeline` es `true`.
+	 *
+	 * @default "animate-range-gradual"
+	 */
+	range?: string;
+	/**
+	 * Clase de delay del plugin (p. ej. `animate-delay-100`). Se aplica con
+	 * `timeline` y sin él.
+	 */
+	delay?: string;
+	/**
+	 * Clase de duración del plugin (p. ej. `animate-duration-500`).
+	 */
+	duration?: string;
+	/**
+	 * Clases custom que se mezclan con las generadas.
+	 */
+	class?: string;
+}
+
+const {
+	as: Tag = "div",
+	animation = "animate-fade-in",
+	timeline = true,
+	range = "animate-range-gradual",
+	delay,
+	duration,
+	class: className = "",
+} = Astro.props;
+
+const classes = cn(
+	timeline ? "timeline-view" : "",
+	timeline ? range : "",
+	animation,
+	delay,
+	duration,
+	className,
+);
+---
+
+<Tag class={classes}>
+	<slot />
+</Tag>

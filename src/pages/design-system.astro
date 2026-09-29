@@ -1,0 +1,116 @@
+---
+import Badge from "../components/ui/Badge.astro";
+import Button from "../components/ui/Button.astro";
+import FormField from "../components/ui/FormField.astro";
+import ProductCard from "../components/ui/ProductCard.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import ThemeToggle from "../components/ui/ThemeToggle.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Design System · Officplastic">
+	<main class="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16">
+		<section class="flex flex-col gap-8">
+			<SectionHeader
+				eyebrow="Design System"
+				title="Officplastic"
+				description="Tokens, tipografía y componentes reutilizables del sistema de diseño."
+			/>
+			<div class="flex items-center justify-end gap-3">
+				<span class="text-sm text-muted">Modo claro / oscuro</span>
+				<ThemeToggle />
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-6">
+			<SectionHeader eyebrow="Colores de marca" title="Paleta" align="left" />
+			<div class="grid grid-cols-2 gap-6 sm:grid-cols-3">
+				<div class="flex flex-col gap-3 rounded-2xl border border-line p-4">
+					<div class="h-20 rounded-xl bg-brand"></div>
+					<p class="text-sm font-semibold text-ink">Brand · #2380C3</p>
+				</div>
+				<div class="flex flex-col gap-3 rounded-2xl border border-line p-4">
+					<div class="h-20 rounded-xl bg-accent"></div>
+					<p class="text-sm font-semibold text-ink">Accent · #8CBC42</p>
+				</div>
+				<div class="flex flex-col gap-3 rounded-2xl border border-line p-4">
+					<div class="h-20 rounded-xl bg-ink"></div>
+					<p class="text-sm font-semibold text-ink">Ink · #0A0A0A</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-6">
+			<SectionHeader eyebrow="Superficies" title="Tokens semánticos" align="left" />
+			<div class="grid grid-cols-2 gap-6 sm:grid-cols-3">
+				<div class="flex flex-col gap-3 rounded-2xl border border-line p-4">
+					<div class="h-20 rounded-xl bg-page border border-line"></div>
+					<p class="text-sm text-muted">bg-page (fondo)</p>
+				</div>
+				<div class="flex flex-col gap-3 rounded-2xl border border-line p-4">
+					<div class="h-20 rounded-xl bg-surface"></div>
+					<p class="text-sm text-muted">bg-surface</p>
+				</div>
+				<div class="flex flex-col gap-3 rounded-2xl border border-line p-4">
+					<div class="h-20 rounded-xl bg-card border border-line"></div>
+					<p class="text-sm text-muted">bg-card</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-6">
+			<SectionHeader eyebrow="Componentes" title="Botones" align="left" />
+			<div class="flex flex-wrap items-center gap-4">
+				<Button variant="primary">Primario</Button>
+				<Button variant="secondary">Secundario</Button>
+				<Button variant="whatsapp">WhatsApp</Button>
+				<Button variant="ghost">Fantasma</Button>
+				<Button href="https://wa.me/573000000000" variant="whatsapp">Link WhatsApp</Button>
+			</div>
+			<div class="flex flex-wrap items-center gap-4">
+				<Button size="sm">Pequeño</Button>
+				<Button size="md">Mediano</Button>
+				<Button size="lg">Grande</Button>
+			</div>
+		</section>
+
+		<section class="flex flex-col gap-6">
+			<SectionHeader eyebrow="Componentes" title="Badge, formulario y tarjetas" align="left" />
+			<div class="flex flex-wrap items-center gap-3">
+				<Badge>Tuberías</Badge>
+				<Badge tone="brand">Plásticos</Badge>
+				<Badge tone="neutral">Construcción</Badge>
+			</div>
+			<form class="flex max-w-md flex-col gap-6 rounded-2xl border border-line bg-surface p-6">
+				<FormField label="Nombre" name="nombre" placeholder="Tu nombre" required />
+				<FormField
+					label="Email"
+					name="email"
+					type="email"
+					placeholder="tu@correo.com"
+					autocomplete="email"
+					required
+				/>
+				<FormField label="Teléfono" name="telefono" type="tel" placeholder="+57 ..." optional />
+				<FormField label="Mensaje" name="mensaje" textarea rows={4} placeholder="Contanos qué necesitás" />
+				<Button type="submit" size="lg">
+					Enviar solicitud
+				</Button>
+			</form>
+			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+				<ProductCard
+					name='Tubo PVC sanitario 4"'
+					reference="PVC-040"
+					category="Tuberías"
+					description="Tubo para desagües sanitarios, 3 m de largo."
+				/>
+				<ProductCard
+					name="Lámina de policarbonato"
+					reference="PC-006"
+					category="Plásticos"
+					description="Lámina translúcida para techos y cerramientos."
+				/>
+			</div>
+		</section>
+	</main>
+</Layout>

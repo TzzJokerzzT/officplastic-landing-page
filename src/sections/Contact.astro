@@ -1,0 +1,79 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../components/ui/Button.astro";
+import FormField from "../components/ui/FormField.astro";
+import Reveal from "../components/ui/Reveal.astro";
+import { site } from "../data/site";
+---
+
+<section id="contacto" class="bg-surface px-6 py-16 sm:px-10 sm:py-20">
+	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
+		<Reveal animation="animate-slide-in-left">
+			<div class="flex flex-col gap-6">
+			<div class="flex flex-col gap-2">
+				<p class="text-sm font-semibold uppercase tracking-wider text-brand">{site.contact.eyebrow}</p>
+				<h2 class="font-display text-3xl font-bold text-ink sm:text-4xl">{site.contact.title}</h2>
+				<p class="max-w-md text-muted">{site.contact.description}</p>
+			</div>
+
+			<div class="flex flex-col gap-4">
+				{
+					site.contact.info.map((info) => (
+						<div class="flex items-center gap-4">
+							<span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
+								<Icon name={info.icon} size={22} />
+							</span>
+							<div>
+								<p class="text-sm font-semibold text-ink">{info.label}</p>
+								<p class="text-sm text-muted">{info.value}</p>
+							</div>
+						</div>
+					))
+				}
+			</div>
+			</div>
+		</Reveal>
+
+		<Reveal animation="animate-slide-in-right" delay="animate-delay-150">
+			<form
+				id="quote-form"
+				class="flex flex-col gap-5 rounded-2xl border border-line bg-card p-7 shadow-sm"
+				data-email={site.site.contact.email}
+			>
+				{
+					site.contact.form.fields.map((field) => (
+						<FormField
+							name={field.name}
+							label={field.label}
+							type={field.type}
+							placeholder={field.placeholder}
+							required={field.required}
+							optional={field.optional}
+							textarea={field.textarea}
+							autocomplete={field.autocomplete}
+						/>
+					))
+				}
+
+				<Button type="submit" variant="primary" size="lg">
+					<Icon name={site.contact.form.submitIcon} size={18} />
+					{site.contact.form.submitLabel}
+				</Button>
+			</form>
+		</Reveal>
+	</div>
+</section>
+
+<script is:inline>
+	document.getElementById("quote-form")?.addEventListener("submit", (event) => {
+		event.preventDefault();
+		const form = event.currentTarget;
+		const data = new FormData(form);
+		const email = form.getAttribute("data-email") || "";
+		const name = String(data.get("nombre") || "");
+		const message = String(data.get("mensaje") || "");
+		const body = `Nombre: ${name}\nMensaje: ${message}`;
+		const subject = "Solicitud de cotización — Officplastic";
+		window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+	});
+</script>

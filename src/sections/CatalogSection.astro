@@ -1,0 +1,37 @@
+---
+import ProductCard from "../components/ui/ProductCard.astro";
+import Reveal from "../components/ui/Reveal.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import { site } from "../data/site";
+---
+
+<section id="catalogo" class="px-6 py-16 sm:px-10 sm:py-20">
+	<div class="mx-auto max-w-6xl">
+		<Reveal animation="animate-fade-in-up animate-range-[entry_10%_contain_30%]">
+			<SectionHeader
+				eyebrow={site.catalog.eyebrow}
+				title={site.catalog.title}
+				description={site.catalog.note}
+			/>
+		</Reveal>
+
+		<div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				site.catalog.products.map((product, index) => (
+					<Reveal 
+            animation="animate-fade-in-up animate-range-[entry_10%_contain_60%]"
+					>
+						<ProductCard
+							name={product.name}
+							reference={product.reference}
+							category={product.category}
+							description={product.description}
+							image={product.image}
+							imageAlt={product.imageAlt}
+						/>
+					</Reveal>
+				))
+			}
+		</div>
+	</div>
+</section>

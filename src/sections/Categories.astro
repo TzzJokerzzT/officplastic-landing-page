@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+import Reveal from "../components/ui/Reveal.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import { site } from "../data/site";
+
+const staggerDelays = [
+	"animate-delay-0",
+	"animate-delay-100",
+	"animate-delay-200",
+	"animate-delay-300",
+];
+---
+
+<section id="categorias" class="bg-surface px-6 py-16 sm:px-10 sm:py-20">
+	<div class="mx-auto max-w-6xl">
+    <Reveal as="section" timeline={false} animation="animate-fade-in-up" delay="animate-delay-0">
+			<SectionHeader eyebrow="Líneas de producto" title="Todo para tu proyecto" align="left" />
+		</Reveal>
+
+		<div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				site.categories.map((category, index) => (
+      <Reveal timeline={false} animation="animate-fade-in-up" delay={staggerDelays[index % staggerDelays.length]}>
+						<a
+							href="#catalogo"
+							class="group flex h-full flex-col gap-4 rounded-2xl bg-card p-6 shadow-sm transition-colors hover:bg-brand/5"
+						>
+							<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
+								<Icon name={category.icon} size={26} />
+							</span>
+							<div>
+								<h3 class="font-semibold text-ink">{category.title}</h3>
+								<p class="mt-1 text-sm text-muted">{category.description}</p>
+							</div>
+							<span class="flex items-center gap-1 text-sm font-semibold text-brand">
+								Ver productos
+								<Icon name="mdi:arrow-right" size={16} class="transition-transform group-hover:translate-x-0.5" />
+							</span>
+						</a>
+					</Reveal>
+				))
+			}
+		</div>
+	</div>
+</section>

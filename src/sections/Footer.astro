@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+import { ctaHref, site } from "../data/site";
+---
+
+<footer class="px-6 py-12  sm:px-10">
+	<div class="mx-auto max-w-6xl ">
+		<div class="grid grid-cols-1 gap-10 md:grid-cols-4">
+			<div class="flex flex-col gap-4 md:col-span-2">
+				<div class="flex items-center gap-2">
+					<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-brand">
+						<Icon name={site.footer.logoIcon} size={18} />
+					</span>
+					<span class="font-display text-lg font-bold">{site.site.name}</span>
+				</div>
+				<p class="max-w-xs text-sm ">{site.footer.description}</p>
+				<a
+					href={ctaHref(site.nav.cta)}
+					class="inline-flex w-fit items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-accent/90"
+				>
+					<Icon name="mdi:whatsapp" size={16} />
+					{site.nav.cta.label}
+				</a>
+			</div>
+
+			{
+				site.footer.columns.map((column) => (
+					<nav aria-label={column.title}>
+						<h3 class="text-sm font-semibold">{column.title}</h3>
+						<ul class="mt-4 flex flex-col gap-2.5">
+							{
+								column.links.map((link) => (
+									<li>
+                    <a href={link.href} class="group relative inline-block text-sm transition-colors">
+                      {link.label}
+                      <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-brand transition-all duration-300 group-hover:w-full"></span>
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</nav>
+				))
+			}
+		</div>
+
+		<div class="mt-10 flex flex-col gap-2 border-t border-white/15 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+			<p>{site.footer.copyright}</p>
+			<p>{site.footer.rightTagline}</p>
+		</div>
+	</div>
+</footer>

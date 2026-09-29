@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components";
+import Reveal from "../components/ui/Reveal.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import { site } from "../data/site";
+---
+
+<section class="px-6 py-16 sm:px-10 sm:py-20">
+	<div class="mx-auto max-w-6xl">
+		<Reveal animation="animate-fade-in-up">
+			<SectionHeader eyebrow={site.howItWorks.eyebrow} title={site.howItWorks.title} />
+		</Reveal>
+
+		<ol class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+			{
+				site.howItWorks.steps.map((step, index) => (
+					<Reveal as="li" animation="animate-fade-in-up animate-range-[entry_10%_contain_60%]"
+>
+						<div class="flex h-full flex-col gap-5 rounded-2xl bg-surface p-7">
+							<span class="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
+								<Icon name={step.icon} size={26} />
+							</span>
+							<div>
+								<h3 class="text-lg font-semibold text-ink">{step.title}</h3>
+								<p class="mt-2 text-sm leading-relaxed text-muted">{step.description}</p>
+							</div>
+						</div>
+					</Reveal>
+				))
+			}
+		</ol>
+	</div>
+</section>

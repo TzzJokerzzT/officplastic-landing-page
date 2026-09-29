@@ -1,0 +1,50 @@
+---
+import { cn } from "../../lib/cn";
+
+interface Props {
+	variant?: "primary" | "secondary" | "whatsapp" | "ghost";
+	size?: "sm" | "md" | "lg";
+	href?: string;
+	type?: "button" | "submit";
+	rel?: string;
+}
+
+const {
+	variant = "primary",
+	size = "md",
+	href,
+	type = "button",
+	rel = "noopener",
+} = Astro.props;
+
+const base =
+	"inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-60";
+
+const variants = {
+	primary: "bg-brand text-white hover:bg-brand/90",
+	secondary: "bg-brand/10 text-brand hover:bg-brand/20",
+	whatsapp: "bg-accent text-black hover:bg-accent/90",
+	ghost: "border border-line text-ink hover:bg-surface",
+};
+
+const sizes = {
+	sm: "h-9 px-4 text-sm",
+	md: "h-12 px-6 text-base",
+	lg: "h-14 px-8 text-lg",
+};
+
+const className = cn(base, variants[variant], sizes[size]);
+const isLink = Boolean(href);
+---
+
+{
+	isLink ? (
+		<a href={href} rel={rel} class={className} data-size={size} data-variant={variant}>
+			<slot />
+		</a>
+	) : (
+		<button type={type} class={className} data-size={size} data-variant={variant}>
+			<slot />
+		</button>
+	)
+}
