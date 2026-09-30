@@ -1,0 +1,119 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Product } from "../../data/site";
+import {
+	buildEmailUrl,
+	buildQuoteMessage,
+	buildWhatsAppUrl,
+} from "../../lib/quote";
+import Badge from "./Badge.astro";
+import Button from "./Button.astro";
+import Reveal from "./Reveal.astro";
+
+interface Props {
+	product: Product;
+}
+
+const { product } = Astro.props;
+
+const images = product.gallery?.length
+	? [product.image, ...product.gallery].filter(Boolean)
+	: product.image
+		? [product.image]
+		: [];
+
+const quoteMessage = buildQuoteMessage(
+	{ name: product.name, reference: product.reference },
+	"¿Pueden enviarme precio y disponibilidad?",
+);
+const whatsAppUrl = buildWhatsAppUrl(quoteMessage);
+const emailUrl = buildEmailUrl(quoteMessage);
+---
+
+<article class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+	<Reveal animation="animate-fade-in-right" class="flex flex-col gap-4">
+		{
+			images.length > 1 ? (
+				<div class="grid grid-cols-1 gap-3">
+					<img
+						src={images[0]}
+						alt={product.imageAlt ?? product.name}
+						class="aspect-square w-full rounded-2xl border border-line object-cover"
+					/>
+					<div class="grid grid-cols-3 gap-3">
+						{images.slice(1).map((image) => (
+							<img
+								src={image}
+								alt={product.imageAlt ?? product.name}
+								loading="lazy"
+								class="aspect-square w-full rounded-xl border border-line object-cover"
+							/>
+						))}
+					</div>
+				</div>
+			) : images[0] ? (
+				<img
+					src={images[0]}
+					alt={product.imageAlt ?? product.name}
+					class="aspect-square w-full rounded-2xl border border-line object-cover"
+				/>
+			) : (
+				<div
+					class="flex aspect-square w-full items-center justify-center rounded-2xl bg-surface text-6xl font-bold text-brand/30"
+					aria-hidden="true"
+				>
+					{product.category.slice(0, 1)}
+				</div>
+			)
+		}
+	</Reveal>
+
+	<div class="flex flex-col gap-6">
+		<Reveal animation="animate-fade-in-up" class="flex flex-col gap-4">
+			<nav aria-label="Miga de pan" class="flex items-center gap-2 text-sm text-muted">
+				<a href="/#catalogo" class="transition-colors hover:text-brand">Catálogo</a>
+				<Icon name="mdi:chevron-right" size={16} />
+				<span class="text-ink">{product.name}</span>
+			</nav>
+
+			<Badge>{product.category}</Badge>
+			<h1 class="font-display text-3xl font-bold text-ink sm:text-4xl">{product.name}</h1>
+			<p class="text-sm text-muted">Referencia: {product.reference}</p>
+			<p class="max-w-xl leading-relaxed text-muted">{product.description}</p>
+		</Reveal>
+
+		{
+			product.specs && product.specs.length > 0 && (
+				<Reveal animation="animate-fade-in-up" delay="animate-delay-100" class="flex flex-col gap-3">
+					<h2 class="font-display text-xl font-bold text-ink">Especificaciones</h2>
+					<dl class="overflow-hidden rounded-2xl border border-line">
+						{
+							product.specs.map((spec, index) => (
+								<div
+									class:list={[
+										"grid grid-cols-[10rem_1fr] gap-4 px-5 py-3 text-sm",
+										index % 2 === 0 ? "bg-surface" : "bg-card",
+									]}
+								>
+									<dt class="font-semibold text-ink">{spec.label}</dt>
+									<dd class="text-muted">{spec.value}</dd>
+								</div>
+							))
+						}
+					</dl>
+				</Reveal>
+			)
+		}
+
+		<Reveal animation="animate-fade-in-up" delay="animate-delay-200" class="flex flex-col gap-4">
+			<p class="text-sm font-medium text-muted">Precio a consultar · respondemos en menos de 24 h</p>
+			<div class="flex max-w-md flex-col gap-3 sm:flex-row">
+				<Button variant="whatsapp" href={whatsAppUrl} size="lg">
+					<Icon name="mdi:whatsapp" size={20} />
+					Cotizar por WhatsApp
+				</Button>
+				<Button variant="secondary" href={emailUrl} size="lg">Cotizar por email</Button>
+			</div>
+		</Reveal>
+	</div>
+</article>
