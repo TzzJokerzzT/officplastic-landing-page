@@ -122,7 +122,25 @@
 				"category": "Plasticos",
 				"description": "Rollo plastico color negro.",
 				"image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
-				"imageAlt": "Obra en construcción con tuberías"
+				"imageAlt": "Obra en construcción con tuberías",
+				"specs": [
+					{
+						"label": "Material",
+						"value": "Polietileno de baja densidad (LDPE)"
+					},
+					{
+						"label": "Medida",
+						"value": "2 x 2 m"
+					},
+					{
+						"label": "Color",
+						"value": "Negro"
+					},
+					{
+						"label": "Uso",
+						"value": "Protección y cubierta de superficies"
+					}
+				]
 			},
 			{
 				"name": "Rollo plastico 3x2\"",
@@ -130,7 +148,25 @@
 				"category": "Plasticos",
 				"description": "Rollo plastico color negro.",
 				"image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
-				"imageAlt": "Detalles arquitectónicos y materiales"
+				"imageAlt": "Detalles arquitectónicos y materiales",
+				"specs": [
+					{
+						"label": "Material",
+						"value": "Polietileno de baja densidad (LDPE)"
+					},
+					{
+						"label": "Medida",
+						"value": "3 x 2 m"
+					},
+					{
+						"label": "Color",
+						"value": "Negro"
+					},
+					{
+						"label": "Uso",
+						"value": "Protección y cubierta de superficies"
+					}
+				]
 			},
 			{
 				"name": "Rollo plastico 3x3\"",
@@ -138,7 +174,25 @@
 				"category": "Plasticos",
 				"description": "Rollo plastico color negro.",
 				"image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
-				"imageAlt": "Trabajos de construcción en obra"
+				"imageAlt": "Trabajos de construcción en obra",
+				"specs": [
+					{
+						"label": "Material",
+						"value": "Polietileno de baja densidad (LDPE)"
+					},
+					{
+						"label": "Medida",
+						"value": "3 x 3 m"
+					},
+					{
+						"label": "Color",
+						"value": "Negro"
+					},
+					{
+						"label": "Uso",
+						"value": "Protección y cubierta de superficies"
+					}
+				]
 			},
 			{
 				"name": "Rollo plastico 3x3\"",
@@ -146,7 +200,25 @@
 				"category": "Plasticos",
 				"description": "Rollo plastico color negro.",
 				"image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
-				"imageAlt": "Ingeniero revisando materiales en obra"
+				"imageAlt": "Ingeniero revisando materiales en obra",
+				"specs": [
+					{
+						"label": "Material",
+						"value": "Polietileno de baja densidad (LDPE)"
+					},
+					{
+						"label": "Medida",
+						"value": "3 x 3 m"
+					},
+					{
+						"label": "Color",
+						"value": "Negro"
+					},
+					{
+						"label": "Uso",
+						"value": "Protección y cubierta de superficies"
+					}
+				]
 			},
 			{
 				"name": "Rollo plastico 3x3\"",
@@ -154,7 +226,29 @@
 				"category": "Plasticos",
 				"description": "Rollo plastico color negro por 300 metros.",
 				"image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
-				"imageAlt": "Ingeniero revisando materiales en obra"
+				"imageAlt": "Ingeniero revisando materiales en obra",
+				"specs": [
+					{
+						"label": "Material",
+						"value": "Polietileno de baja densidad (LDPE)"
+					},
+					{
+						"label": "Medida",
+						"value": "3 x 3 m"
+					},
+					{
+						"label": "Color",
+						"value": "Negro"
+					},
+					{
+						"label": "Uso",
+						"value": "Protección y cubierta de superficies"
+					},
+					{
+						"label": "Presentación",
+						"value": "Rollo de 300 m"
+					}
+				]
 			}
 		]
 	},

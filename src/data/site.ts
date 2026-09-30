@@ -23,6 +23,11 @@ interface Category {
 	description: string;
 }
 
+interface ProductSpec {
+	label: string;
+	value: string;
+}
+
 interface Product {
 	name: string;
 	reference: string;
@@ -30,7 +35,13 @@ interface Product {
 	description?: string;
 	image?: string;
 	imageAlt?: string;
+	/** Galería extra de imágenes (la principal es `image`). */
+	gallery?: string[];
+	/** Especificaciones técnicas mínimas. */
+	specs?: ProductSpec[];
 }
+
+export type { ProductSpec };
 
 interface WhyItem {
 	icon: string;
