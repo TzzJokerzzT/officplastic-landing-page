@@ -1,0 +1,32 @@
+---
+import ProductDetail from "../../components/ui/ProductDetail.astro";
+import { getProductRoutes } from "../../data/catalog";
+import type { Product } from "../../data/site";
+import { site } from "../../data/site";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../sections/Footer.astro";
+import Navbar from "../../sections/Navbar.astro";
+
+export function getStaticPaths() {
+	return getProductRoutes();
+}
+
+interface Props {
+	product: Product;
+}
+
+const { product } = Astro.props;
+---
+
+<Layout
+	title={`${product.name} · ${site.site.name}`}
+	description={product.description ?? site.site.tagline}
+>
+	<Navbar />
+
+	<main class="mx-auto max-w-6xl px-6 py-14 sm:px-10">
+		<ProductDetail product={product} />
+	</main>
+
+	<Footer />
+</Layout>
