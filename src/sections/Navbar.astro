@@ -3,25 +3,31 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Logo from "../assets/images/logo.png";
 import Button from "../components/ui/Button.astro";
+import Reveal from "../components/ui/Reveal.astro";
 import ThemeToggle from "../components/ui/ThemeToggle.astro";
 import { ctaHref, site } from "../data/site";
+
+// Los anclas del JSON (ej. "#catalogo") apuntan a secciones de la home;
+// desde otras rutas (p. ej. /catalogo/...) se prefijan con "/" para
+// navegar a la home y luego a la sección.
+const href = (value: string) => (value.startsWith("#") ? `/${value}` : value);
 ---
 
-<header class="sticky top-0 z-40">
+<Reveal as="header" timeline={false} animation="animate-fade-in-down" class="sticky top-0 z-40">
 	<div class="flex items-center justify-center gap-2 bg-brand px-4 py-2 text-center text-xs font-medium text-white sm:text-sm">
 		<Icon name={site.topBar.icon} size={16} />
 		<span>{site.topBar.text}</span>
 	</div>
 	<nav class="flex items-center justify-between border-b border-line bg-page/90 px-6 py-3 backdrop-blur-md sm:px-10"
 		aria-label="Navegación principal">
-		<a href="#inicio" class="flex items-center gap-2">
+		<a href="/" class="flex items-center gap-2">
      <Image src={Logo} alt={site.topBar.text} class="h-9 w-30 bg-none rounded-lg" />
 		</a>
 
 		<div class="hidden items-center gap-8 text-sm font-medium text-ink md:flex">
 			{
 				site.nav.links.map((link) => (
-        <a href={link.href} class="group relative inline-block transition-colors">
+        <a href={href(link.href)} class="group relative inline-block transition-colors">
           {link.label}
           <span class="absolute left-0 -bottom-1 h-0.5 w-0 bg-brand transition-all duration-300 group-hover:w-full"></span>
         </a>
@@ -41,4 +47,4 @@ import { ctaHref, site } from "../data/site";
   <div class="flex items-center justify-start">
   <div class="h-2 w-full bg-brand timeline-scroll animate-expand-horizontally"></div>
   </div>
-</header>
+</Reveal>
